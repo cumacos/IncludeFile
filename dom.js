@@ -1,3 +1,8 @@
+/* 
+ Simple DOM ready() detection without jQuery
+ https://gist.github.com/carldanley/3639521
+*/
+
 var DOM = new function()
 {
     var IS_READY = false;
@@ -6,7 +11,7 @@ var DOM = new function()
 
     SELF.ready = function( callback ){
         //check to see if we're already finished
-        if( IS_READY === true && typeof callback === 'function' ) {
+        if ( IS_READY === true && typeof callback === 'function' ) {
             callback();
             return;
         }
@@ -34,7 +39,7 @@ var DOM = new function()
             setTimeout( doScrollCheck, 1 );
             return;
         }
-        //there were no errors with the scroll check and the callbacks have not yet fired, so fire them now
+        //there were no errors with the scroll check and the callbacks have not yet fired, so fire them now  
         fireCallbacks();
     };
     var fireCallbacks = function() {
@@ -73,19 +78,12 @@ var DOM = new function()
     };
     //since we have the function declared, start listening
     listenForDocumentReady();
-}; //simple use case : DOM.ready( function(){ alert( 'Ready!' ); } );
+}; 
 
-function addSetAttributeInGroup(aObj, prop, atri)
-{
-    for(var i = 0; i<aObj.length; i++ )
-        aObj[i].setAttribute( prop, atri);
-}
-
-
-function addEventListenerInGroup(aObj, aEvent, oFun)
-{
-    for(var i = 0; i<aObj.length; i++ )
-        for(var j = 0; j<aEvent.length; j++ )
-            aObj[i].addEventListener( aEvent[j], oFun);
-}
+/*
+//simple use case : 
+DOM.ready( function() { 
+        alert( 'Ready!' ); 
+} );
+*/
 

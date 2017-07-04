@@ -10,14 +10,14 @@
     var aObjs = [
                   { "path":"js/" , "typ":"js"  , "arc":"fileYellow" },
                   { "path":"css/", "typ":"css" , "arc":"fileYellow" },
-                  { "path":"js/" , "typ":"js"  , "arc":"fileBlue" },
-                  { "path":"css/", "typ":"css" , "arc":"fileBlue" },
-                  { "path":"js/" , "typ":"js"  , "arc":"fileRed" },
-                  { "path":"css/", "typ":"css" , "arc":"fileRed" }
+                  { "path":"js/" , "typ":"js"  , "arc":"fileBlue"   },
+                  { "path":"css/", "typ":"css" , "arc":"fileBlue"   },
+                  { "path":"js/" , "typ":"js"  , "arc":"fileRed"    },
+                  { "path":"css/", "typ":"css" , "arc":"fileRed"    }
     ];
 
-    DOM.ready( function() { 
-        includeGroup(aObjs); 
+    DOM.ready( function() {
+        includeGroup(aObjs);
     } );
 
 </script>
@@ -26,9 +26,9 @@
 <h1>Ej.: Incluir y Remover Archivos (.js & .css) Dinámicamente a Partir de Arreglo JSON</h1>
 <section id="contenido">
     <div id="pElements"></div>
-    <button type=button onClick="document.location.reload(true);" >Recargar</button>
-    <button type=button onClick="document.getElementById('pElements').innerHTML='';removeGroup(aObjs);" >Remover
-     </button>
+    <button type=button onClick="document.location.reload(true);">Recargar</button>
+    <button type=button onClick="document.getElementById('pElements').innerHTML='';removeGroup(aObjs);">Remover</button>  
 </section>
 </body>
 </html>
+

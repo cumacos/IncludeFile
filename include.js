@@ -7,11 +7,11 @@ function includeGroup( arr )
         this.createJsCssFile = function( fileName , fileType )
         {
 
-            if (fileType == "js") { 
+            if (fileType == "js") {
                 var fileRef = document.createElement( 'script' );
                 fileRef.setAttribute( "type","text/javascript" );
                 fileRef.setAttribute( "src", fileName );
-            } else if ( fileType == "css" ) { 
+            } else if ( fileType == "css" ) {
                 var fileRef = document.createElement( "link" );
                 fileRef.setAttribute( "rel", "stylesheet" );
                 fileRef.setAttribute( "type", "text/css" );
@@ -31,8 +31,8 @@ function includeGroup( arr )
 
     var arrLen = arr.length;
 
-    for (var i = 0; i < arrLen; i++)
-        include(arr[i]["typ"] , arr[i]["path"]+arr[i]["arc"]+"."+ arr[i]["typ"]); 
+    for ( var i = 0; i < arrLen; i++ )
+        include( arr[i]["typ"] , arr[i]["path"] + arr[i]["arc"] + "." + arr[i]["typ"] );
 
 }
 
@@ -42,14 +42,14 @@ function removeGroup( arr )
     this.removeJsCssFile = function( fileName , fileType )
     {
 
-        var targetElement = ( fileType == "js" ) ? "script" : ( fileType == "css" ) ? "link" : "none"; 
-        var targetAttr = ( fileType == "js" )? "src" : ( fileType == "css" ) ? "href" : "none"; 
+        var targetElement = ( fileType == "js" ) ? "script" : ( fileType == "css" ) ? "link" : "none";
+        var targetAttr = ( fileType == "js" )? "src" : ( fileType == "css" ) ? "href" : "none";
         var allSuspects = document.getElementsByTagName( targetElement );
         for ( var i = allSuspects.length; i >= 0; i-- ) {
-            if ( allSuspects[i] 
-            && allSuspects[i].getAttribute( targetAttr ) != null 
+            if ( allSuspects[i]
+            && allSuspects[i].getAttribute( targetAttr ) != null
             && allSuspects[i].getAttribute( targetAttr ).indexOf( fileName ) != -1 )
-                allSuspects[i].parentNode.removeChild( allSuspects[i] ); 
+                allSuspects[i].parentNode.removeChild( allSuspects[i] );
         }
 
     }
@@ -57,7 +57,7 @@ function removeGroup( arr )
     var arrLen = arr.length;
 
     for ( var i = 0; i < arrLen; i++ )
-        removeJsCssFile( arr[i]["path"]+arr[i]["arc"]+"."+ arr[i]["typ"], arr[i]["typ"] ); 
+        removeJsCssFile( arr[i]["path"] + arr[i]["arc"] + "." + arr[i]["typ"], arr[i]["typ"] );
 
 }
 
